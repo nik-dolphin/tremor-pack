@@ -1,0 +1,27 @@
+name: Tramor Pack
+
+on:
+  push:
+    branches:
+      - "main"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    stratagy: 
+      matrix:
+        node-version: [15.x]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Install and build
+        run: npm install && npm run build
+      
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: pg-pages
+          folder: build # The folder the action should deploy.

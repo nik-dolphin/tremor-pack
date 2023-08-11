@@ -16,6 +16,8 @@ import { InformationCircleIcon } from "@heroicons/react/outline";
 import Tabs from "./components/tabs";
 import Navbar from "./components/Navbar/navbar";
 import Slider from "./components/Slider/slider";
+import DonutChartComponent from "./components/DonutChart";
+import Map from "./components/map";
 
 export const performance = [
   {
@@ -191,6 +193,7 @@ function App() {
         onClick={handleMainClick}
       >
         <div className="m-10">
+          <Map />
           <Tabs />
           <Card
             className="max-w-xs mx-auto my-4"
@@ -249,6 +252,7 @@ function App() {
               className="h-96 mt-8"
             />
           </Card>
+          <DonutChartComponent />
         </div>
       </main>
     </>
