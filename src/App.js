@@ -2,12 +2,18 @@ import { useState } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar/navbar";
 import DonutChartComponent from "./components/DonutChart";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import Home from "./components/home";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Services from "./components/Services";
 import Blog from "./components/Blog";
+import PageNotFound from "./PageNotFound";
 
 export const performance = [
   {
@@ -166,6 +172,8 @@ function App() {
         >
           <div className="m-10">
             <Routes>
+              <Route path="/404" element={<PageNotFound />} />
+              <Route path="*" element={<Navigate replace to="/404" />} />
               <Route exact path="/" element={<Home />} />
               <Route exact path="/about" element={<About />} />
               <Route exact path="/contact_us" element={<Contact />} />
