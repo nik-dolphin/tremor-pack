@@ -1,6 +1,6 @@
 {
-  "name": "tremor-pack",
   "homepage": "https://nik-dolphin.github.io/tremor-pack",
+  "name": "tremor-pack",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
