@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/tremor-pack/static/css/main.3e54e69c.css",
+    "main.js": "/tremor-pack/static/js/main.384d3479.js",
+    "static/js/787.dfafe928.chunk.js": "/tremor-pack/static/js/787.dfafe928.chunk.js",
+    "index.html": "/tremor-pack/index.html",
+    "main.3e54e69c.css.map": "/tremor-pack/static/css/main.3e54e69c.css.map",
+    "main.384d3479.js.map": "/tremor-pack/static/js/main.384d3479.js.map",
+    "787.dfafe928.chunk.js.map": "/tremor-pack/static/js/787.dfafe928.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3e54e69c.css",
+    "static/js/main.384d3479.js"
+  ]
+}
