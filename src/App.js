@@ -1,23 +1,13 @@
 import { useState } from "react";
 import "./App.css";
-import {
-  AreaChart,
-  Card,
-  Flex,
-  Icon,
-  Metric,
-  ProgressBar,
-  Text,
-  Title,
-  Toggle,
-  ToggleItem,
-} from "@tremor/react";
-import { InformationCircleIcon } from "@heroicons/react/outline";
-import Tabs from "./components/tabs";
 import Navbar from "./components/Navbar/navbar";
-import Slider from "./components/Slider/slider";
 import DonutChartComponent from "./components/DonutChart";
-import Map from "./components/map";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./components/home";
+import About from "./components/About";
+import Contact from "./components/Contact";
+import Services from "./components/Services";
+import Blog from "./components/Blog";
 
 export const performance = [
   {
@@ -160,27 +150,8 @@ export const performance = [
   },
 ];
 
-// Basic formatters for the chart values
-const dollarFormatter = (value) =>
-  `$ ${Intl.NumberFormat("us").format(value).toString()}`;
-
-const numberFormatter = (value) =>
-  `${Intl.NumberFormat("us").format(value).toString()}`;
-
 function App() {
-  const [selectedKpi, setSelectedKpi] = useState("Sales");
   const [isActive, setIsActive] = useState(false);
-
-  // map formatters by selectedKpi
-  const formatters = {
-    Sales: dollarFormatter,
-    Profit: dollarFormatter,
-    Customers: numberFormatter,
-  };
-
-  const handleChangeProgressBar = () => {
-    console.log(document.x);
-  };
 
   const handleMainClick = () => {
     setIsActive(false);
@@ -188,73 +159,22 @@ function App() {
   return (
     <>
       <Navbar setIsActive={setIsActive} isActive={isActive} />
-      <main
-        className={`main pt-[6.5rem]${isActive ? " main-blur" : ""}`}
-        onClick={handleMainClick}
-      >
-        <div className="m-10">
-          <Map />
-          <Tabs />
-          <Card
-            className="max-w-xs mx-auto my-4"
-            decoration="bottom"
-            decorationColor="indigo"
-          >
-            <Text>Sales</Text>
-            <Metric>$ 34,743</Metric>
-            <Flex className="mt-4">
-              <Text>32% of annual target</Text>
-              <Text>$ 225,000</Text>
-            </Flex>
-            <ProgressBar
-              onChange={handleChangeProgressBar}
-              percentageValue={32}
-              className="mt-2 cursor-pointer"
-            />
-          </Card>
-          <Card decoration="bottom" decorationColor="indigo">
-            <div className="md:flex justify-between">
-              <div>
-                <Flex
-                  justifyContent="start"
-                  className="space-x-0.5"
-                  alignItems="center"
-                >
-                  <Title> Performance History </Title>
-                  <Icon
-                    icon={InformationCircleIcon}
-                    variant="simple"
-                    tooltip="Shows day-over-day (%) changes of past performance"
-                  />
-                </Flex>
-                <Text> Daily increase or decrease per domain </Text>
-              </div>
-              <div className="mt-6 md:mt-0">
-                <Toggle
-                  color="zinc"
-                  defaultValue={selectedKpi}
-                  onValueChange={(value) => setSelectedKpi(value)}
-                >
-                  <ToggleItem value="Sales" text="Sales" />
-                  <ToggleItem value="Profit" text="Profit" />
-                  <ToggleItem value="Customers" text="Customers" />
-                </Toggle>
-              </div>
-            </div>
-            <AreaChart
-              data={performance}
-              index="date"
-              categories={[selectedKpi]}
-              colors={["blue"]}
-              showLegend={false}
-              valueFormatter={formatters[selectedKpi]}
-              yAxisWidth={56}
-              className="h-96 mt-8"
-            />
-          </Card>
-          <DonutChartComponent />
-        </div>
-      </main>
+      <Router>
+        <main
+          className={`main pt-[6.5rem]${isActive ? " main-blur" : ""}`}
+          onClick={handleMainClick}
+        >
+          <div className="m-10">
+            <Routes>
+              <Route exact path="/" element={<Home />} />
+              <Route exact path="/about" element={<About />} />
+              <Route exact path="/contact_us" element={<Contact />} />
+              <Route exact path="/blog" element={<Blog />} />
+              <Route exact path="/services" element={<Services />} />
+            </Routes>
+          </div>
+        </main>
+      </Router>
     </>
   );
 }

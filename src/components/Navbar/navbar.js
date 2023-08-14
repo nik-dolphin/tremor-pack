@@ -5,19 +5,19 @@ import "./navabr.css";
 const HeaderList = [
   {
     title: "About",
-    url: "#",
+    url: "/about",
   },
   {
     title: "Services",
-    url: "#",
+    url: "/services",
   },
   {
     title: "Blog",
-    url: "#",
+    url: "/blog",
   },
   {
     title: "Contact Us",
-    url: "#",
+    url: "/contact_us",
   },
 ];
 
@@ -41,7 +41,7 @@ const Navbar = ({ setIsActive, isActive }) => {
       <header className={`header${toggleScroll ? " nav-open" : ""}`}>
         <nav className="navbar">
           <h1>
-            <a href="#" className="brand">
+            <a href="/" className="brand">
               Brand
             </a>
           </h1>
