@@ -164,21 +164,21 @@ function App() {
   };
   return (
     <>
-      <Navbar setIsActive={setIsActive} isActive={isActive} />
       <Router>
+        <Navbar setIsActive={setIsActive} isActive={isActive} />
         <main
           className={`main pt-[6.5rem]${isActive ? " main-blur" : ""}`}
           onClick={handleMainClick}
         >
           <div className="m-10">
             <Routes>
-              <Route path="/404" element={<PageNotFound />} />
-              <Route path="*" element={<Navigate replace to="/404" />} />
               <Route exact path="/" element={<Home />} />
               <Route exact path="/about" element={<About />} />
               <Route exact path="/contact_us" element={<Contact />} />
               <Route exact path="/blog" element={<Blog />} />
               <Route exact path="/services" element={<Services />} />
+              <Route path="/404" element={<PageNotFound />} />
+              <Route path="*" element={<Navigate replace to="/404" />} />
             </Routes>
           </div>
         </main>

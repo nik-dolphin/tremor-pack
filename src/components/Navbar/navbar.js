@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react";
 import "./navabr.css";
+import { Link } from "react-router-dom";
 
 const HeaderList = [
   {
@@ -41,16 +42,16 @@ const Navbar = ({ setIsActive, isActive }) => {
       <header className={`header${toggleScroll ? " nav-open" : ""}`}>
         <nav className="navbar">
           <h1>
-            <a href="/" className="brand">
+            <Link to="/" className="brand">
               Brand
-            </a>
+            </Link>
           </h1>
           <ul className="desktop-menu">
             {HeaderList?.map((item, index) => (
               <li key={index} className="desktop-menu-item">
-                <a href={item?.url} className="desktop-menu-link">
+                <Link to={item?.url} className="desktop-menu-link">
                   {item?.title}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
@@ -68,9 +69,9 @@ const Navbar = ({ setIsActive, isActive }) => {
         <ul className={`menu${isActive ? " active" : ""}`} id="menu">
           {HeaderList?.map((item, index) => (
             <li key={index} className="menu-item">
-              <a href={item?.url} className="menu-link">
+              <Link to={item?.url} className="menu-link">
                 {item?.title}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
