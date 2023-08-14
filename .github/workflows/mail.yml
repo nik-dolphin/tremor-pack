@@ -23,6 +23,6 @@ jobs:
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4.4.3
         with:
-          ASSECC_TOKEN: ${{ secrets.ACTION_SECRET_KEY }}
+          ssh-key: ${{ secrets.ACTION_SECRET_KEY }}
           branch: pg-pages
           folder: build # The folder the action should deploy.
