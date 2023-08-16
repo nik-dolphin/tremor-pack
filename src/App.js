@@ -1,7 +1,6 @@
 import { useState } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar/navbar";
-import DonutChartComponent from "./components/DonutChart";
 import {
   BrowserRouter as Router,
   Routes,
@@ -178,6 +177,10 @@ function App() {
               <Route exact path="/blog" element={<Blog />} />
               <Route exact path="/services" element={<Services />} />
               <Route path="/404" element={<PageNotFound />} />
+              <Route
+                path="/tremor-pack"
+                element={<Navigate replace to="/" />}
+              />
               <Route path="*" element={<Navigate replace to="/404" />} />
             </Routes>
           </div>
