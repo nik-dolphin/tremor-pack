@@ -71,4 +71,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify]
 
 ss
-![screenshot](design-side-navigation.png)
+![screenshot](https://github.com/nik-dolphin/tremor-pack/tree/main/public/design-side-navigation.png)
